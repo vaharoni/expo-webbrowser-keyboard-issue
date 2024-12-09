@@ -10,15 +10,15 @@ export default function HomeScreen() {
   const keyboardDetectorWidth = useAnimatedStyle(() => ({ width: height.value }))
 
   function handlePress() {
-    const linkToHere = Linking.createURL('/index');
+    const linkToHere = Linking.createURL('');
     WebBrowser.openBrowserAsync(linkToHere);
   }
   return (
-    <View style={{ gap: 20 }}>
+    <View style={{ gap: 20, padding: 50 }}>
       <Animated.View style={[{ backgroundColor: 'blue', height: 100 }, keyboardDetectorWidth]} />
-      <TextInput placeholder="Press here to open keyboard" />;
-      <Pressable onPress={handlePress} style={{ backgroundColor: 'gray', width: '100%', borderRadius: 24 }}>
-        <Text>
+      <TextInput placeholder="Press here to open keyboard" style={{ padding: 12, borderRadius: 16, borderWidth: 1 }} />
+      <Pressable onPress={handlePress} style={{ backgroundColor: 'gray', width: '100%', borderRadius: 24, padding: 12 }}>
+        <Text style={{ textAlign: 'center' }}>
           Click to launch WebBrowser
         </Text>
       </Pressable>
