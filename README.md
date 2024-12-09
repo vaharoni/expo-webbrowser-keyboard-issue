@@ -1,6 +1,6 @@
 ## Overview
 
-This repo demonstrates an issue observed on Android with Unistyles versions 2.20 and 3 (beta).
+This repo demonstrates an issue ([#404](https://github.com/jpudysz/react-native-unistyles/issues/404)) observed on Android with Unistyles versions 2.20 and 3 (beta).
 
 After returning to the application from a WebBrowser session, the keyboard related `SharedValue`s from `react-native-reanimated` or `react-native-keyboard-controller` stop responding to keyboard changes until the app is closed and reopened.
 
@@ -20,7 +20,7 @@ The repo has 3 branches:
 - `unistyles-2.20` - use of unistyles 2.20, demonstrating the issue
 - `unistyles-3` - use of unistyles 3 (beta), demonstrating the issue
 
-The repo also contains an `.apk` file for each variant.
+The repo also contains an `.apk` file for each variant in the `apk` branch.
 
 ## To reproduce
 
