@@ -1,50 +1,31 @@
-# Welcome to your Expo app 👋
+## Overview
 
-This is an [Expo](https://expo.dev) project created with [`create-expo-app`](https://www.npmjs.com/package/create-expo-app).
+This repo demonstrates an issue observed on Android with Unistyles versions 2.20 and 3 (beta).
 
-## Get started
+After returning to the application from a WebBrowser session, the keyboard related `SharedValue`s from `react-native-reanimated` or `react-native-keyboard-controller` stop responding to keyboard changes until the app is closed and reopened.
 
-1. Install dependencies
+This is problematic since WebBrowser is a common way to perform authentication for social login. After the user gets redirected back to the app, all dependencies on the keyboard's shared value stop working.
 
-   ```bash
-   npm install
-   ```
+Importantly, one does not need to use any feature of unistyles for this to manifest. Simply configuring unistyles causes the issue.
 
-2. Start the app
+The issue could not be reproduced on iOS.
 
-   ```bash
-    npx expo start
-   ```
+The repo demonstrates the problem with `react-native-reanimated`, but it was also observed with `react-native-keyboard-controller`.
 
-In the output, you'll find options to open the app in a
+## Branches
 
-- [development build](https://docs.expo.dev/develop/development-builds/introduction/)
-- [Android emulator](https://docs.expo.dev/workflow/android-studio-emulator/)
-- [iOS simulator](https://docs.expo.dev/workflow/ios-simulator/)
-- [Expo Go](https://expo.dev/go), a limited sandbox for trying out app development with Expo
+The repo has 3 branches:
 
-You can start developing by editing the files inside the **app** directory. This project uses [file-based routing](https://docs.expo.dev/router/introduction).
+- `main` - no use of unistyles, demonstrating a workable version
+- `unistyles-2.20` - use of unistyles 2.20, demonstrating the issue
+- `unistyles-3` - use of unistyles 3 (beta), demonstrating the issue
 
-## Get a fresh project
+The repo also contains an `.apk` file for each variant.
 
-When you're ready, run:
+## To reproduce
 
-```bash
-npm run reset-project
-```
+1. Click on the text input field. Observe that the animated view attached to the shared value of the keyboard height gets properly animated.
+2. Click on the button saying "Click to launch WebBrowser". While nothing seems to happen, the app just got back from a webbrowser session.
+3. Click on the text input field again.
 
-This command will move the starter code to the **app-example** directory and create a blank **app** directory where you can start developing.
-
-## Learn more
-
-To learn more about developing your project with Expo, look at the following resources:
-
-- [Expo documentation](https://docs.expo.dev/): Learn fundamentals, or go into advanced topics with our [guides](https://docs.expo.dev/guides).
-- [Learn Expo tutorial](https://docs.expo.dev/tutorial/introduction/): Follow a step-by-step tutorial where you'll create a project that runs on Android, iOS, and the web.
-
-## Join the community
-
-Join our community of developers creating universal apps.
-
-- [Expo on GitHub](https://github.com/expo/expo): View our open source platform and contribute.
-- [Discord community](https://chat.expo.dev): Chat with Expo users and ask questions.
+On the `main` branch, the animated view would work. On `unistyles-2.20` or `unistyles-3` branches, the view would stop responding.
