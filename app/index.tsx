@@ -1,13 +1,12 @@
 import { Text, Pressable, View } from "react-native";
 import { TextInput } from "react-native-gesture-handler";
-import Animated, { useAnimatedStyle } from "react-native-reanimated"
+import Animated, { useAnimatedKeyboard, useAnimatedStyle } from "react-native-reanimated"
 import * as WebBrowser from 'expo-web-browser';
 import * as Linking from 'expo-linking';
-import { useReanimatedKeyboardAnimation } from "react-native-keyboard-controller";
 
 
 export default function HomeScreen() {
-  const { height } = useReanimatedKeyboardAnimation();
+  const { height } = useAnimatedKeyboard();
   const keyboardDetectorWidth = useAnimatedStyle(() => ({ width: height.value }))
 
   function handlePress() {
