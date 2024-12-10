@@ -4,6 +4,7 @@ import * as SplashScreen from 'expo-splash-screen';
 import { StatusBar } from 'expo-status-bar';
 import { useEffect } from 'react';
 import 'react-native-reanimated';
+import { KeyboardProvider } from "react-native-keyboard-controller";
 
 import { GestureHandlerRootView } from 'react-native-gesture-handler';
 
@@ -26,9 +27,11 @@ export default function RootLayout() {
   }
 
   return (
-    <GestureHandlerRootView>
-      <Slot />
-      <StatusBar style="auto" />
-    </GestureHandlerRootView>
+    <KeyboardProvider statusBarTranslucent navigationBarTranslucent>
+      <GestureHandlerRootView>
+        <Slot />
+        <StatusBar style="auto" />
+      </GestureHandlerRootView>
+    </KeyboardProvider>
   );
 }
