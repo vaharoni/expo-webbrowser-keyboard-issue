@@ -14,13 +14,22 @@ The repo demonstrates the problem with `react-native-reanimated`, but it was als
 
 ## Branches
 
-The repo has 3 branches:
+The repo has a few branches.
 
-- `main` - no use of unistyles, demonstrating a workable version
-- `unistyles-2.20` - use of unistyles 2.20, demonstrating the issue
-- `unistyles-3` - use of unistyles 3 (beta), demonstrating the issue
+Branches where the issue is not observed:
 
-The repo also contains an `.apk` file for each variant in the `apk` branch.
+- `main` - no use of unistyles
+- `unistyles-2.7.2` - use of unistyles 2.7.2
+- `edge-to-edge` - use of react-native-edge-to-edge
+- `keyboard-controller` - use of react-native-keyboard-controller
+- `keyboard-controller-edge-to-edge` - use of react-native-keyboard-controller and react-native-edige-to-edge
+
+Branches where the issue is observed:
+
+- `unistyles-2.20` - use of unistyles 2.20
+- `unistyles-3` - use of unistyles 3 (beta)
+
+The repo also contains a few `.apk` files for some variants in the `apk` branch.
 
 ## To reproduce
 
